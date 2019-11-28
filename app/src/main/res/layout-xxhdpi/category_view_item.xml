@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/category_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView android:id="@+id/category_text_view"
+            android:layout_width="0dp"
+            android:layout_weight=".8"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dimen_16sp"
+            android:textColor="@color/text_selection_color"
+            android:text="Category"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:padding="@dimen/dimen_20dp"
+            android:fontFamily="@font/opensans_semibold"/>
+        <ImageView
+            android:id="@+id/iv_arrow_expand"
+            android:layout_width="0dp"
+            android:layout_weight=".2"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/dimen_42dp"
+            android:clickable="false"
+            android:padding="@dimen/dimen_5dp"
+            android:src="@drawable/ic_arrow_down"/>
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:layout_marginStart="@dimen/dimen_20dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:layout_below="@id/category_item_layout"
+        android:background="@color/light_gray"/>
+</RelativeLayout>

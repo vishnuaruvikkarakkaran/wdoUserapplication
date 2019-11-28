@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+        <item
+            android:id="@+id/nav_shop_listing"
+            android:icon="@drawable/ic_home"
+            android:title="@string/nav_home_text" />
+        <item
+            android:id="@+id/nav_change_number"
+            android:icon="@drawable/ic_share"
+            android:title="@string/nav_share_text" />
+        <!--<item
+            android:id="@+id/nav_order_history"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_order_history" />
+        <item
+            android:id="@+id/nav_return_products"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_return_products" />-->
+
+</menu>

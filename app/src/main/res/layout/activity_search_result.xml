@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/dimen_15dp"
+    android:layout_marginEnd="@dimen/dimen_15dp"
+    tools:context=".ui.searchresult.SearchResultActivity">
+
+    <include
+        android:id="@+id/searchResultToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerViewContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_15dp"
+        android:orientation="vertical"
+        app:shimmer_duration="800">
+
+
+        <!-- Adding 7 rows of placeholders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+        </LinearLayout>
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchShopListView"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

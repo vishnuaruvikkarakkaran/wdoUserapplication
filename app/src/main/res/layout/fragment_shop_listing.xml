@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.shoplisting.ShopListingFragment">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerViewContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_15dp"
+        android:orientation="vertical"
+        app:shimmer_duration="800">
+
+        <!-- Adding 7 rows of placeholders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/banner_placeholder_shimmer" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100dp"
+                android:background="@color/shimmerBackground"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@color/shimmerBackground"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:background="@color/shimmerBackground"/>
+
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+            <include layout="@layout/shoplist_placeholder_layout" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_15dp">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:background="@android:color/transparent"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll">
+
+                <!--<androidx.viewpager.widget.ViewPager
+                    android:id="@+id/bannerViewPager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_250dp"/>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/bannerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/categoryView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_15dp"
+                        android:layout_marginBottom="@dimen/dimen_15dp"
+                        android:nestedScrollingEnabled="false"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BEST DEALS NEAR ME"
+                        android:fontFamily="@font/opensans_bold"
+                        android:textColor="@color/text_selection_color"
+                        android:textSize="@dimen/dimen_16sp">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5dp"
+                        android:layout_marginBottom="@dimen/dimen_15dp"
+                        android:text="Smart deals within your sight."
+                        android:fontFamily="@font/opensans_regular"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/dimen_12sp">
+                    </TextView>
+
+                </LinearLayout>
+
+
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/shopListView"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!--<ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bannerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:scrollbars="none"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shopListView"
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>-->
+
+</RelativeLayout>

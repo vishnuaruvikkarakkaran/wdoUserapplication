@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:weightSum="1"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight=".25">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/listRoundedImageView"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:adjustViewBounds="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight=".60"
+        android:paddingStart="@dimen/dimen_10dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listShopName"
+            android:fontFamily="@font/opensans_bold"
+            android:lines="1"
+            android:singleLine="true"
+            android:text="sample text"
+            android:textSize="@dimen/content_text_size"
+            android:textColor="@color/text_selection_color"
+            android:padding="@dimen/dimen_3dp">
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listShopAddress"
+            android:fontFamily="@font/opensans_regular"
+            android:lines="1"
+            android:singleLine="true"
+            android:text="sample text"
+            android:textSize="@dimen/dimen_14sp"
+            android:textColor="@color/text_color"
+            android:padding="@dimen/dimen_3dp">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen_3dp"
+            android:paddingEnd="@dimen/dimen_0dp">
+            <RatingBar
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="1"
+                android:layout_gravity="center"
+                android:rating="1"
+                android:isIndicator="true"
+                android:progressTint="@color/quantum_yellow800"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_14sp"
+                android:textColor="@color/text_color"
+                android:layout_gravity="center"
+                android:padding="@dimen/dimen_5dp">
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_weight=".15">
+        <LinearLayout
+            android:id="@+id/call_button"
+            android:layout_width="@dimen/dimen_40dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/call_video_bg"
+            android:layout_height="@dimen/dimen_40dp">
+            <ImageView
+                android:layout_width="@dimen/dimen_25dp"
+                android:layout_height="@dimen/dimen_25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_video_camera">
+            </ImageView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopName"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/content_text_size"
+        android:textColor="@color/text_selection_color"
+        android:padding="@dimen/dimen_5dp">
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopAddress"
+        android:fontFamily="@font/opensans_semibold"
+        android:textSize="@dimen/content_text_size"
+        android:textColor="@color/text_selection_color"
+        android:padding="@dimen/dimen_5dp">
+    </TextView>-->
+
+</LinearLayout>

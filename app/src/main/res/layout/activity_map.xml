@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mapToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/CustomActionBar"/>
+
+    <RelativeLayout
+        android:layout_above="@+id/mapInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            map:mapType="normal"
+            tools:context=".ui.map.MapActivity"/>
+        <ImageView
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/imgLocationPinUp"
+            android:src="@drawable/ic_pin_icon"
+            />
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/mapInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+
+        android:gravity="center">
+        <ProgressBar
+            android:id="@+id/locationProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="-7dp"
+            android:visibility="invisible"
+            android:indeterminate="true"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_25dp"
+            android:layout_marginEnd="@dimen/dimen_25dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/selectLocationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_location"
+                android:textSize="18sp"
+                android:padding="5dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/opensans_bold"
+                android:gravity="start"/>
+
+            <TextView
+                android:id="@+id/changeLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/change"
+                android:paddingTop="@dimen/dimen_5dp"
+                android:layout_centerVertical="true"
+                android:paddingBottom="@dimen/dimen_5dp"
+                android:paddingStart="@dimen/dimen_15dp"
+                android:paddingEnd="@dimen/dimen_15dp"
+                android:background="@drawable/change_bg"
+                android:textColor="@color/colorSecondary"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="14sp"
+                />
+
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensans_regular"
+            android:padding="5dp"
+            android:lines="2"
+            android:maxLines="2"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/dimen_25dp"
+            android:layout_marginEnd="@dimen/dimen_25dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:textSize="@dimen/button_text_size"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/confirmLocation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/content_text_size"
+            android:layout_marginStart="@dimen/dimen_25dp"
+            android:layout_marginEnd="@dimen/dimen_25dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/location_button_corner_radius"
+            android:text="@string/confirm_location"/>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "612882189105",
+    "firebase_url": "https://weedeo.firebaseio.com",
+    "project_id": "weedeo",
+    "storage_bucket": "weedeo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612882189105:android:9b0c0d1b775da45eed7e10",
+        "android_client_info": {
+          "package_name": "com.weedeo.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612882189105-fu8k486na359j0e5ece8l3nljau62hd5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.weedeo.user",
+            "certificate_hash": "b68f7c8c8f7428e8ff85190563ad46b2b6ff23e9"
+          }
+        },
+        {
+          "client_id": "612882189105-f2vtv8u3f03856vi8rfglr59522l2gkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQwYNzx7eywL0wtljZTSPzuwaglJ-xqf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612882189105-f2vtv8u3f03856vi8rfglr59522l2gkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

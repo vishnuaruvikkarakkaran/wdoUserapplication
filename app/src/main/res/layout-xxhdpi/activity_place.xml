@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/placeToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_90dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:theme="@style/ToolBarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <include
+            android:id="@+id/addNewAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:gravity ="center_vertical"
+            layout="@layout/custom_place_search_layout" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/currentLocationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_32dp"
+                android:layout_height="@dimen/dimen_32dp"
+                android:src="@drawable/location"
+                android:padding="@dimen/dimen_5dp">
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:padding="@dimen/dimen_10dp"
+                android:textSize="@dimen/dimen_16sp"
+                android:text="@string/current_location_gps_text">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/places_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_below="@+id/currentLocationLayout"
+            android:layout_above="@+id/powered_by_google"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/powered_by_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/places_powered_by_google_light"/>
+    </RelativeLayout>
+</LinearLayout>

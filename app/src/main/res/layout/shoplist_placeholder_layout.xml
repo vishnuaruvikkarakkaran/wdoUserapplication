@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:weightSum="1"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight=".25">
+
+        <View
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:background="@color/shimmerBackground"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight=".60"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_margin="@dimen/dimen_5dp"
+            android:background="@color/shimmerBackground">
+        </View>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_20dp"
+            android:background="@color/shimmerBackground"
+            android:layout_margin="@dimen/dimen_5dp">
+        </View>
+
+        <View
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:background="@color/shimmerBackground"
+            android:layout_margin="@dimen/dimen_5dp">
+        </View>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_weight=".15">
+        <View
+            android:layout_width="@dimen/dimen_50dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/shimmerBackground"
+            android:layout_height="@dimen/dimen_50dp">
+        </View>
+
+    </RelativeLayout>
+
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopName"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/content_text_size"
+        android:textColor="@color/text_selection_color"
+        android:padding="@dimen/dimen_5dp">
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopAddress"
+        android:fontFamily="@font/opensans_semibold"
+        android:textSize="@dimen/content_text_size"
+        android:textColor="@color/text_selection_color"
+        android:padding="@dimen/dimen_5dp">
+    </TextView>-->
+
+</LinearLayout>

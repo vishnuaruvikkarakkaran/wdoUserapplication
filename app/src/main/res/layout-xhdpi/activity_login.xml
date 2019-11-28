@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity">
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/imageSlider"
+        android:layout_above="@+id/loginInfoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:sliderAnimationDuration="700"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderAutoCycleEnabled="false"
+        app:sliderIndicatorRtlMode="auto"
+        app:sliderCircularHandlerEnabled="false"
+        app:sliderIndicatorAnimationDuration="700"
+        app:sliderIndicatorGravity="end|bottom"
+        app:sliderIndicatorMargin="@dimen/dimen_15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="@dimen/dimen_3dp"
+        app:sliderIndicatorRadius="@dimen/dimen_2dp"
+        app:sliderIndicatorSelectedColor="#5A5A5A"
+        app:sliderIndicatorUnselectedColor="#FFF"
+        app:sliderScrollTimeInSec="5"
+        app:sliderStartAutoCycle="true" />
+
+    <LinearLayout
+        android:id="@+id/loginInfoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_regular"
+            android:gravity="center"
+            android:textSize="@dimen/content_text_size"
+            android:textColor="@color/text_color"
+            android:text="@string/login_title">
+        </TextView>
+
+        <Button
+            android:id="@+id/setLocation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/location_button_text"
+            android:background="@drawable/location_button_corner_radius"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text_size"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:layout_marginStart="@dimen/dimen_40sp"
+            android:layout_marginEnd="@dimen/dimen_40dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/content_text_size"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/opensans_regular"
+                android:text="@string/have_account_text">
+            </TextView>
+
+            <TextView
+                android:id="@+id/loginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/content_bold_text_size"
+                android:textColor="@color/colorSecondary"
+                android:text="@string/login_button_text">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/content_bold_text_size"
+                android:textColor="@color/colorSecondary"
+                android:text="xhdpi"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

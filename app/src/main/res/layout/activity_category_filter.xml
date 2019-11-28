@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/filterLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.filter.CategoryFilterActivity">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerViewContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:shimmer_duration="800">
+
+        <!-- Adding  rows of placeholders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+            <include layout="@layout/category_list_shimmer_layout" />
+
+
+        </LinearLayout>
+
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -1,0 +1,175 @@
+package com.weedeo.user.ui.shoplisting;
+
+import android.content.Context;
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
+import com.weedeo.user.R;
+import com.weedeo.user.Utils.Constants;
+import com.weedeo.user.data.ApiClient;
+import com.weedeo.user.data.WebApiListener;
+import com.weedeo.user.model.CategoryResponseModel;
+import com.weedeo.user.model.ShopListResponseModel;
+import com.weedeo.user.model.request.ShopListRequestModel;
+import com.weedeo.user.sharedpreference.SharedPreferenceData;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.weedeo.user.Utils.Constants.KEY_ACCESS_TOKEN;
+
+/**
+ * Responsible for handling actions from the view and updating the UI
+ * as required.
+ */
+
+public class ShopListingPresenter implements ShopListingContract.Presenter{
+
+    private ShopListingContract.MvpView mvpView;
+    private String TAG = "ShopListingPresenter";
+    private Context mContext;
+
+    public ShopListingPresenter(ShopListingContract.MvpView mvpView, Context context) {
+        this.mvpView = mvpView;
+        this.mContext = context;
+    }
+
+    @Override
+    public void onLoadShopList(double latitude, double longitude) {
+
+        try {
+            mvpView.onShowProgress();
+            ShopListRequestModel requestModel = new ShopListRequestModel();
+            requestModel.setFrom(0);
+            requestModel.setSize(20);
+            requestModel.setSearch("");
+
+            ShopListRequestModel.LocationBean locationBean = new ShopListRequestModel.LocationBean();
+            locationBean.setLat(latitude);
+            locationBean.setLon(longitude);
+
+            requestModel.setLocation(locationBean);
+
+            SharedPreferenceData preferenceData = new SharedPreferenceData(mContext);
+            String token = preferenceData.getString(KEY_ACCESS_TOKEN);
+            WebApiListener service = ApiClient.getRetrofitInstance().create(WebApiListener.class);
+
+            Log.e("params search : ", new Gson().toJson(requestModel));
+
+            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(requestModel));
+            Call<String> call =  service.getShopList(requestBody,token);
+            call.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+
+                    try {
+                        if (response.code()== Constants.SUCCESS_CODE){
+                            if (response.body()!=null){
+                                Log.e("response : ",response.body());
+                                Type listType = new TypeToken<ShopListResponseModel>() {
+                                }.getType();
+                                ShopListResponseModel shopListResponseModel = new GsonBuilder().create().fromJson(response.body(), listType);
+                                if (shopListResponseModel.getStatus().equals(Constants.SUCCESS)){
+                                    if (shopListResponseModel.getData()!=null){
+                                        Log.e("request","success");
+                                        mvpView.onShopDataReceivedSuccess(shopListResponseModel.getData().getHits());
+                                    }
+
+                                }
+
+                            }
+
+                        }else if (response.code()==Constants.ERROR_CODE){
+                        }else if (response.code()==Constants.ERROR_BAD_GATEWAY_CODE){
+                        }else if (response.code()==Constants.ERROR_UNAUTHORIZED_CODE){
+
+                        }
+                        mvpView.onHideProgress();
+                    } catch (JsonSyntaxException e) {
+                        Log.e("Exception  Search: ", e.getMessage());
+                        mvpView.onHideProgress();
+                        // HyperLog.i(TAG,"onUserLogin Error - "+e.getMessage());
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+                    //HyperLog.i(TAG,"onUserLogin Fails - "+t.getMessage());
+                    Log.e("Failure Message : ",t.getMessage());
+                    mvpView.onHideProgress();
+                }
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            mvpView.onHideProgress();
+        }
+
+    }
+
+    @Override
+    public void onLoadBannerList() {
+        List<String> bannerList = new ArrayList<>();
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+        bannerList.add("a");
+
+        mvpView.onLoadBannerListSuccess(bannerList);
+    }
+
+    @Override
+    public void onLoadCategory() {
+        try {
+            SharedPreferenceData preferenceData = new SharedPreferenceData(mContext);
+            String token = preferenceData.getString(KEY_ACCESS_TOKEN);
+            WebApiListener service = ApiClient.getRetrofitInstance().create(WebApiListener.class);
+            Call<String> call = service.getCategory(token);
+            call.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+                    if (response.code() == Constants.SUCCESS_CODE) {
+                        if (response.body() != null) {
+                            Log.e("response : ", response.body());
+                            Type listType = new TypeToken<CategoryResponseModel>() {
+                            }.getType();
+                            CategoryResponseModel categoryResponseModel = new GsonBuilder().create().fromJson(response.body(), listType);
+                            mvpView.onLoadCategoriesSuccess(categoryResponseModel.getData());
+                        } else {
+                            mvpView.onShowToast(mContext.getString(R.string.something_went_wrong_text));
+                        }
+
+                    } else if (response.code() == Constants.ERROR_CODE) {
+                    } else if (response.code() == Constants.ERROR_BAD_GATEWAY_CODE) {
+                    } else if (response.code() == Constants.ERROR_UNAUTHORIZED_CODE) {
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

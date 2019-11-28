@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/dimen_5dp"
+    android:layout_marginBottom="@dimen/dimen_5dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/dimen_18sp"
+        android:textColor="@color/black"
+        android:text="Name of user"
+        android:padding="@dimen/dimen_5dp"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/opensans_regular"
+        android:text="fdqewfwefwefwefwefwefwef,fwefwefwefwefwefwef,fwefwefawefwaefweafawef,fwefwefwaefawefwaefaw,wefwefwefwaefweafawef,wefwefewfwefweaf"
+        android:textSize="@dimen/dimen_16sp"
+        android:padding="@dimen/dimen_5dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/setDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="-2dp"
+            android:buttonTint="@color/colorSecondary"
+            android:textSize="@dimen/dimen_14sp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:fontFamily="@font/opensans_regular"
+            android:text="@string/primary_text">
+        </RadioButton>
+
+        <ImageView
+            android:id="@+id/deleteAddress"
+            android:layout_width="@dimen/dimen_24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/delete"
+            android:layout_marginEnd="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_2dp"
+            android:layout_height="@dimen/dimen_24dp">
+        </ImageView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
